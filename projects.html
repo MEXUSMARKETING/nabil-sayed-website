@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>פרויקטים | נביל סייד ניהול פרויקטים</title>
+<meta name="description" content="פרויקטים של פירוק ופינוי אסבסט והרכבת גגות פאנל ואיסכורית – בתים פרטיים, מבני תעשייה ומבנים חקלאיים.">
+<meta property="og:title" content="פרויקטים | נביל סייד ניהול פרויקטים">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0e1620">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<!-- HEADER:START -->
+<a class="skip-link" href="#main">דילוג לתוכן הראשי</a>
+<header class="topbar" id="top">
+  <div class="wrap">
+    <a href="index.html" class="logo" aria-label="נביל סייד ניהול פרויקטים – לדף הבית">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" fill="none" stroke="#0e1620" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"><path d="M3 15 16 5l13 10"/><path d="M7 13v13h18V13"/><path d="M12 26v-7h8v7"/></svg>
+      </span>
+      <span class="logo-text"><b>נביל סייד</b><span>ניהול פרויקטים</span></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="ניווט ראשי">
+      <a href="index.html">ראשי</a>
+      <a href="about.html">אודות</a>
+      <a href="asbestos.html">פינוי אסבסט</a>
+      <a href="panels.html">פאנלים ואיסכורית</a>
+      <a href="projects.html">פרויקטים</a>
+      <a href="contact.html">צור קשר</a>
+      <a href="contact.html#form" class="btn btn-primary">הצעת מחיר</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+<!-- HEADER:END -->
+
+<main id="main">
+<section class="page-hero has-photo">
+  <img class="hero-bg" src="images/house-black-tile-roof.jpg" alt="" aria-hidden="true">
+  <div class="wrap">
+    <ol class="crumbs"><li><a href="index.html">ראשי</a></li><li aria-current="page">פרויקטים</li></ol>
+    <span class="eyebrow">תיק עבודות</span>
+    <h1>פרויקטים <em>שביצענו</em></h1>
+    <p class="lead">מגגות של בתים פרטיים ועד מבני תעשייה ומבנים חקלאיים – הנה חלק מהעבודות שלנו. לחצו על תמונה כדי להגדיל אותה.</p>
+  </div>
+</section>
+<div class="hazard" role="presentation"></div>
+
+<!-- להוספת פרויקט: שמרו תמונה בתיקייה images והעתיקו figure קיים.
+     data-full = התמונה שנפתחת בהגדלה. קטגוריות ב-data-cat: agri, industry, home, asbestos -->
+<section class="section">
+  <div class="wrap">
+    <div class="filters" id="filters" role="group" aria-label="סינון פרויקטים">
+      <button type="button" data-filter="all" aria-pressed="true">הכול</button>
+      <button type="button" data-filter="agri" aria-pressed="false">מבנים חקלאיים</button>
+      <button type="button" data-filter="industry" aria-pressed="false">תעשייה ומסחר</button>
+      <button type="button" data-filter="home" aria-pressed="false">בתים פרטיים</button>
+    </div>
+
+    <div class="gallery">
+      <figure class="tile wide reveal" data-cat="agri" data-full="images/agri-white-roof.jpg"><div class="ph"></div><img src="images/agri-white-roof.jpg" alt="צוות מרכיב גג מתכת לבן על מבנה חקלאי באמצע שדות" loading="lazy" onerror="this.remove()"><span class="tag">חקלאות</span><figcaption>גג מתכת לבן למבנה חקלאי<small>הרכבה בשטח פתוח</small></figcaption></figure>
+      <figure class="tile tall reveal" data-cat="agri" data-full="images/cowshed-roof.jpg"><div class="ph"></div><img src="images/cowshed-roof.jpg" alt="קירוי חדש לרפת – מבט מתוך המבנה" loading="lazy" onerror="this.remove()"><span class="tag">חקלאות</span><figcaption>קירוי חדש לרפת<small>מבט מתוך המבנה</small></figcaption></figure>
+      <figure class="tile reveal" data-cat="industry" data-full="images/red-tile-panel-roof.jpg"><div class="ph"></div><img src="images/red-tile-panel-roof.jpg" alt="גג פאנל בדמוי רעפים בגוון אדום" loading="lazy" onerror="this.remove()"><span class="tag">פאנל</span><figcaption>גג פאנל בדמוי רעפים<small>גוון אדום</small></figcaption></figure>
+      <figure class="tile tall reveal" data-cat="industry" data-full="images/curved-iskurit-red.jpg"><div class="ph"></div><img src="images/curved-iskurit-red.jpg" alt="קירוי איסכורית קשתית אדומה לאורך חזית מבנה מסחרי" loading="lazy" onerror="this.remove()"><span class="tag">איסכורית</span><figcaption>איסכורית קשתית<small>חזית מבנה מסחרי</small></figcaption></figure>
+      <figure class="tile wide reveal" data-cat="industry" data-full="images/industrial-3.jpg"><div class="ph"></div><img src="images/industrial-3.jpg" alt="מבנה תעשייה לאחר הרכבת גג וחיפוי פח לבן" loading="lazy" onerror="this.remove()"><span class="tag">תעשייה</span><figcaption>גג וחיפוי למבנה תעשייה<small>לאחר סיום העבודה</small></figcaption></figure>
+      <figure class="tile reveal" data-cat="industry" data-full="images/industrial-1.jpg"><div class="ph"></div><img src="images/industrial-1.jpg" alt="חזית ארוכה של מבנה תעשייה עם חיפוי פח חדש" loading="lazy" onerror="this.remove()"><span class="tag">תעשייה</span><figcaption>חיפוי חזית ארוכה<small>מבנה תעשייה</small></figcaption></figure>
+      <figure class="tile tall reveal" data-cat="industry" data-full="images/industrial-2.jpg"><div class="ph"></div><img src="images/industrial-2.jpg" alt="פינת מבנה תעשייה עם חיפוי פח וגמר פחחות" loading="lazy" onerror="this.remove()"><span class="tag">תעשייה</span><figcaption>גמר ופחחות בפינת המבנה<small>מבנה תעשייה</small></figcaption></figure>
+      <figure class="tile reveal" data-cat="industry" data-full="images/industrial-4.jpg"><div class="ph"></div><img src="images/industrial-4.jpg" alt="גמלון מבנה תעשייה מחופה בפח לבן" loading="lazy" onerror="this.remove()"><span class="tag">תעשייה</span><figcaption>חיפוי גמלון<small>מבנה תעשייה</small></figcaption></figure>
+      <figure class="tile tall reveal" data-cat="home" data-full="images/house-black-tile-install.jpg"><div class="ph"></div><img src="images/house-black-tile-install.jpg" alt="עובד מרכיב גג בדמוי רעפים שחור על קונסטרוקציית פלדה בבית פרטי" loading="lazy" onerror="this.remove()"><span class="tag">בית פרטי</span><figcaption>הרכבת גג בדמוי רעפים<small>במהלך העבודה</small></figcaption></figure>
+      <figure class="tile wide reveal" data-cat="home" data-full="images/house-black-tile-roof.jpg"><div class="ph"></div><img src="images/house-black-tile-roof.jpg" alt="גג בדמוי רעפים בגוון שחור על בית פרטי לאחר ההרכבה" loading="lazy" onerror="this.remove()"><span class="tag">בית פרטי</span><figcaption>גג בדמוי רעפים בגוון שחור<small>לאחר ההרכבה</small></figcaption></figure>
+      <figure class="tile tag-before reveal" data-cat="industry" data-full="images/old-roof-before.jpg"><div class="ph"></div><img src="images/old-roof-before.jpg" alt="גג מתכת ישן עם טלאי איטום – לפני הטיפול" loading="lazy" onerror="this.remove()"><span class="tag">לפני</span><figcaption>גג ישן ופגום<small>לפני הטיפול</small></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <div>
+      <h2>הפרויקט הבא יכול להיות שלכם.</h2>
+      <p>ספרו לנו על המבנה – ונחזור עם הצעת מחיר.</p>
+    </div>
+    <div class="btns">
+      <a href="contact.html#form" class="btn btn-dark">לקבלת הצעת מחיר</a>
+      <a href="#" class="btn btn-ghost" data-wa-link target="_blank" rel="noopener">וואטסאפ</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER:START -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-about">
+        <a href="index.html" class="logo">
+          <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="#0e1620" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"><path d="M3 15 16 5l13 10"/><path d="M7 13v13h18V13"/><path d="M12 26v-7h8v7"/></svg></span>
+          <span class="logo-text"><b>נביל סייד</b><span>ניהול פרויקטים</span></span>
+        </a>
+        <p>פירוק ופינוי אסבסט והרכבת גגות פאנל ואיסכורית – פרויקט אחד, קבלן אחד, אחריות אחת.</p>
+      </div>
+      <div>
+        <h4>ניווט</h4>
+        <ul>
+          <li><a href="index.html">דף הבית</a></li>
+          <li><a href="about.html">אודות</a></li>
+          <li><a href="projects.html">פרויקטים</a></li>
+          <li><a href="index.html#faq">שאלות נפוצות</a></li>
+          <li><a href="contact.html">צור קשר</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>שירותים</h4>
+        <ul>
+          <li><a href="asbestos.html">פינוי ופירוק אסבסט</a></li>
+          <li><a href="asbestos.html#replace">החלפת גג אסבסט</a></li>
+          <li><a href="panels.html">גגות פאנל מבודד</a></li>
+          <li><a href="panels.html#iskurit">גגות איסכורית</a></li>
+          <li><a href="panels.html#uses">מבנים חקלאיים ותעשייה</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>יצירת קשר</h4>
+        <ul class="foot-contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><a href="#" data-phone-link class="ltr" data-phone>050-000-0000</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg><a href="#" data-mail-link class="ltr" data-email>info@example.co.il</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-area>כל רחבי הארץ</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span data-hours></span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© <span data-year>2026</span> נביל סייד ניהול פרויקטים. כל הזכויות שמורות.</span>
+      <span><a href="accessibility.html">הצהרת נגישות</a></span>
+    </div>
+  </div>
+</footer>
+
+<a href="#" class="wa-float" data-wa-link target="_blank" rel="noopener" aria-label="שליחת הודעת וואטסאפ">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+<!-- FOOTER:END -->
+<script src="assets/main.js"></script>
+</body>
+</html>
