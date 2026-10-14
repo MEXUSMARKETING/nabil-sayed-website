@@ -179,3 +179,112 @@ if (form) form.addEventListener("submit", e => {
   ].filter(Boolean);
   window.open(waBase + "?text=" + encodeURIComponent(lines.join("\n")), "_blank", "noopener");
 });
+
+/* safe localStorage (may be blocked in private mode) */
+const store = {
+  get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+
+/* ======================================================
+   תפריט נגישות
+   ====================================================== */
+(function(){
+  const KEY = "ns-a11y";
+  const ZOOMS = [1, 1.1, 1.2, 1.35];
+  const TOGGLES = [
+    ["contrast", "ניגודיות גבוהה", '<circle cx="12" cy="12" r="9"/><path d="M12 3v18a9 9 0 0 0 0-18z" fill="currentColor"/>'],
+    ["gray",     "גווני אפור",     '<circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18" stroke-dasharray="2 2"/>'],
+    ["links",    "הדגשת קישורים",  '<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>'],
+    ["font",     "גופן קריא",      '<path d="M4 20 10 4h1l6 16M6.5 14h8"/>'],
+    ["spacing",  "ריווח שורות",    '<path d="M8 6h13M8 12h13M8 18h13M3 4v16M1.5 6 3 4l1.5 2M1.5 18 3 20l1.5-2"/>'],
+    ["noanim",   "עצירת אנימציות", '<circle cx="12" cy="12" r="9"/><path d="M10 9v6M14 9v6"/>'],
+    ["cursor",   "סמן גדול",       '<path d="M5 3l13 9-6 1.5 3.5 6.5-2.6 1.4-3.5-6.6L5 19z"/>']
+  ];
+  const ZOOM_TARGETS = ".topbar, main, footer";
+  let state = Object.assign({ zoom: 0 }, store.get(KEY) || {});
+
+  const apply = () => {
+    const root = document.documentElement;
+    TOGGLES.forEach(([k]) => root.classList.toggle("a11y-" + k, !!state[k]));
+    $$(ZOOM_TARGETS).forEach(el => el.style.zoom = ZOOMS[state.zoom] === 1 ? "" : ZOOMS[state.zoom]);
+    if (state.noanim) $$(".reveal").forEach(el => el.classList.add("in"));
+    store.set(KEY, state);
+    if (panel) {
+      $$("[data-a11y]", panel).forEach(b => b.setAttribute("aria-pressed", !!state[b.dataset.a11y]));
+      $(".a11y-zoom-val", panel).textContent = Math.round(ZOOMS[state.zoom] * 100) + "%";
+    }
+  };
+
+  const wrap = document.createElement("div");
+  wrap.className = "a11y-root";
+  wrap.innerHTML =
+    '<button type="button" class="a11y-btn" aria-label="פתיחת תפריט נגישות" aria-expanded="false" aria-controls="a11yPanel">' +
+      '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="4" r="2.2"/><path d="M19.5 8.4a1 1 0 0 1-.9 1.1l-4.1.6v3.4l2 6.3a1.1 1.1 0 0 1-2.1.7L12.6 15h-1.2l-1.8 5.5a1.1 1.1 0 0 1-2.1-.7l2-6.3v-3.4l-4.1-.6a1 1 0 0 1 .3-2.1l4.6.6h3.4l4.6-.6a1 1 0 0 1 1.2 1z"/></svg>' +
+    '</button>' +
+    '<div class="a11y-panel" id="a11yPanel" role="dialog" aria-modal="false" aria-labelledby="a11yTitle" hidden>' +
+      '<div class="a11y-head"><h2 id="a11yTitle">תפריט נגישות</h2>' +
+        '<button type="button" class="a11y-close" aria-label="סגירת תפריט נגישות">✕</button></div>' +
+      '<div class="a11y-zoom" role="group" aria-label="גודל טקסט">' +
+        '<span>גודל טקסט</span>' +
+        '<button type="button" data-zoom="-1" aria-label="הקטנת טקסט">א−</button>' +
+        '<output class="a11y-zoom-val" aria-live="polite">100%</output>' +
+        '<button type="button" data-zoom="1" aria-label="הגדלת טקסט">א+</button>' +
+      '</div>' +
+      '<div class="a11y-grid">' +
+        TOGGLES.map(([k, label, icon]) =>
+          '<button type="button" data-a11y="' + k + '" aria-pressed="false">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + icon + '</svg>' +
+          '<span>' + label + '</span></button>').join("") +
+      '</div>' +
+      '<div class="a11y-foot">' +
+        '<button type="button" class="a11y-reset">איפוס הגדרות</button>' +
+        '<a href="accessibility.html">הצהרת נגישות</a>' +
+      '</div>' +
+    '</div>';
+  document.body.appendChild(wrap);
+
+  const btn = $(".a11y-btn", wrap);
+  var panel = $(".a11y-panel", wrap);
+  const open = show => {
+    panel.hidden = !show;
+    btn.setAttribute("aria-expanded", show);
+    if (show) $("button", panel).focus(); else btn.focus();
+  };
+  btn.addEventListener("click", () => open(panel.hidden));
+  $(".a11y-close", panel).addEventListener("click", () => open(false));
+  panel.addEventListener("keydown", e => { if (e.key === "Escape") open(false); });
+  document.addEventListener("click", e => { if (!panel.hidden && !wrap.contains(e.target)) { panel.hidden = true; btn.setAttribute("aria-expanded", false); } });
+  $$("[data-a11y]", panel).forEach(b => b.addEventListener("click", () => { state[b.dataset.a11y] = !state[b.dataset.a11y]; apply(); }));
+  $$("[data-zoom]", panel).forEach(b => b.addEventListener("click", () => {
+    state.zoom = Math.max(0, Math.min(ZOOMS.length - 1, state.zoom + +b.dataset.zoom)); apply();
+  }));
+  $(".a11y-reset", panel).addEventListener("click", () => { state = { zoom: 0 }; apply(); });
+  apply();
+})();
+
+/* ======================================================
+   הודעת עוגיות
+   ====================================================== */
+(function(){
+  const KEY = "ns-cookie-notice";
+  if (store.get(KEY)) return;
+  const bar = document.createElement("div");
+  bar.className = "cookie-bar";
+  bar.setAttribute("role", "region");
+  bar.setAttribute("aria-label", "הודעה על שימוש בעוגיות");
+  bar.innerHTML =
+    '<p><b>האתר משתמש בעוגיות ובאחסון מקומי הכרחיים בלבד</b> – לשמירת העדפות הנגישות ולתפקוד תקין של האתר. ' +
+    'איננו משתמשים בעוגיות פרסום או מעקב. <a href="privacy.html">למדיניות הפרטיות</a></p>' +
+    '<button type="button" class="btn btn-primary">הבנתי</button>';
+  document.body.appendChild(bar);
+  document.documentElement.classList.add("has-cookie-bar");
+  const fit = () => document.documentElement.style.setProperty("--cookie-h", bar.offsetHeight + 16 + "px");
+  fit(); window.addEventListener("resize", fit);
+  $("button", bar).addEventListener("click", () => {
+    store.set(KEY, { accepted: new Date().toISOString() });
+    bar.remove();
+    document.documentElement.classList.remove("has-cookie-bar");
+    window.removeEventListener("resize", fit);
+  });
+})();
