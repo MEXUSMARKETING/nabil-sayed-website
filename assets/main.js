@@ -4,8 +4,6 @@
 const SITE = {
   phone:     "050-842-2649",        // טלפון ראשי לתצוגה
   phoneIntl: "+972508422649",       // טלפון ראשי בפורמט בינלאומי לחיוג
-  phone2:    "050-901-0517",        // טלפון נוסף
-  phone2Intl:"+972509010517",
   whatsapp:  "972508422649",        // מספר וואטסאפ בלי + ובלי 0 בהתחלה
   email:     "nabeel33@walla.co.il",
   facebook:  "https://www.facebook.com/%D7%A0%D7%91%D7%99%D7%9C-%D7%A1%D7%99%D7%99%D7%93-%D7%A0%D7%99%D7%94%D7%95%D7%9C-%D7%95%D7%A2%D7%91%D7%95%D7%93%D7%95%D7%AA-%D7%A7%D7%91%D7%9C%D7%A0%D7%95%D7%AA-%D7%91%D7%A2%D7%9E-118340010002879",
@@ -16,8 +14,6 @@ const SITE = {
 const $ = (s, root = document) => root.querySelector(s);
 const $$ = (s, root = document) => [...root.querySelectorAll(s)];
 
-$$("[data-phone2]").forEach(el => el.textContent = SITE.phone2);
-$$("[data-phone2-link]").forEach(el => el.href = "tel:" + SITE.phone2Intl);
 $$("[data-facebook-link]").forEach(el => el.href = SITE.facebook);
 if (!SITE.hours) $$("[data-hours]").forEach(el => (el.closest("li") || el).remove());
 $$("[data-phone]").forEach(el => el.textContent = SITE.phone);
