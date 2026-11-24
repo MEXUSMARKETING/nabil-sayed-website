@@ -263,15 +263,15 @@ const store = {
    הודעת עוגיות
    ====================================================== */
 (function(){
-  const KEY = "ns-cookie-notice";
+  const KEY = "ns-cookie-notice-v2";
   if (store.get(KEY)) return;
   const bar = document.createElement("div");
   bar.className = "cookie-bar";
   bar.setAttribute("role", "region");
   bar.setAttribute("aria-label", "הודעה על שימוש בעוגיות");
   bar.innerHTML =
-    '<p><b>האתר משתמש בעוגיות ובאחסון מקומי הכרחיים בלבד</b> – לשמירת העדפות הנגישות ולתפקוד תקין של האתר. ' +
-    'איננו משתמשים בעוגיות פרסום או מעקב. <a href="privacy.html">למדיניות הפרטיות</a></p>' +
+    '<p><b>האתר משתמש בעוגיות ובאחסון מקומי</b> – לתפקוד תקין של האתר ולשמירת העדפות הנגישות, ' +
+    'וגם לכלי מדידה ופרסום של Google, שעוזרים לנו להבין איך משתמשים באתר. <a href="privacy.html">למדיניות הפרטיות</a></p>' +
     '<button type="button" class="btn btn-primary">הבנתי</button>';
   document.body.appendChild(bar);
   document.documentElement.classList.add("has-cookie-bar");
