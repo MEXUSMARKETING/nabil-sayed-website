@@ -27,6 +27,19 @@ $$("[data-wa-link]").forEach(el =>
   el.href = waBase + "?text=" + encodeURIComponent("שלום, אשמח לקבל פרטים על שירותי נביל סייד ניהול פרויקטים"));
 $$("[data-year]").forEach(el => el.textContent = new Date().getFullYear());
 
+/* המרת Google Ads "קליק לשיחה": כל לחיצה על קישור tel: באתר.
+   לא עוצרים את החיוג – ההמרה נשלחת ברקע (beacon). */
+document.addEventListener("click", e => {
+  const a = e.target.closest && e.target.closest('a[href^="tel:"]');
+  if (!a || typeof window.gtag !== "function") return;
+  window.gtag("event", "conversion", {
+    send_to: "AW-17951572390/Sg8_COrxrb4dEKaD_e9C",
+    value: 1.0,
+    currency: "ILS",
+    transport_type: "beacon"
+  });
+});
+
 /* active page in the menu */
 (function(){
   // works for both "about.html" and clean URLs like "/about" (Vercel)
