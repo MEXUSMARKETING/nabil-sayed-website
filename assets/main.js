@@ -27,17 +27,25 @@ $$("[data-wa-link]").forEach(el =>
   el.href = waBase + "?text=" + encodeURIComponent("שלום, אשמח לקבל פרטים על שירותי נביל סייד ניהול פרויקטים"));
 $$("[data-year]").forEach(el => el.textContent = new Date().getFullYear());
 
-/* המרת Google Ads "קליק לשיחה": כל לחיצה על קישור tel: באתר.
-   לא עוצרים את החיוג – ההמרה נשלחת ברקע (beacon). */
-document.addEventListener("click", e => {
-  const a = e.target.closest && e.target.closest('a[href^="tel:"]');
-  if (!a || typeof window.gtag !== "function") return;
+/* המרות Google Ads: "קליק לשיחה" (קישורי tel:) ו"קליק לוואטסאפ" (קישורי wa.me
+   ושליחת טופס הפנייה שנפתח בוואטסאפ). לא עוצרים את הניווט – ההמרה נשלחת ברקע (beacon). */
+const CONV = {
+  call: "AW-17951572390/Sg8_COrxrb4dEKaD_e9C",
+  whatsapp: "AW-17951572390/vsgsCJahuL4dEKaD_e9C"
+};
+function sendConversion(label) {
+  if (typeof window.gtag !== "function") return;
   window.gtag("event", "conversion", {
-    send_to: "AW-17951572390/Sg8_COrxrb4dEKaD_e9C",
+    send_to: label,
     value: 1.0,
     currency: "ILS",
     transport_type: "beacon"
   });
+}
+document.addEventListener("click", e => {
+  const a = e.target.closest && e.target.closest('a[href^="tel:"], a[href*="wa.me/"], a[href*="api.whatsapp.com"]');
+  if (!a) return;
+  sendConversion(a.getAttribute("href").startsWith("tel:") ? CONV.call : CONV.whatsapp);
 });
 
 /* active page in the menu */
@@ -186,6 +194,7 @@ if (form) form.addEventListener("submit", e => {
     form.city.value.trim() && "יישוב: " + form.city.value.trim(),
     form.message.value.trim() && "פרטים: " + form.message.value.trim()
   ].filter(Boolean);
+  sendConversion(CONV.whatsapp);
   window.open(waBase + "?text=" + encodeURIComponent(lines.join("\n")), "_blank", "noopener");
 });
 
