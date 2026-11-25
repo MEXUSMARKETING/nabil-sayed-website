@@ -30,7 +30,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="assets/styles.css?v=bda502c5">
+<link rel="stylesheet" href="assets/styles.css?v=696df719">
 
 <!-- נתוני העסק לגוגל -->
 <script type="application/ld+json">
@@ -81,7 +81,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <main id="main">
 <!-- ===== Hero ===== -->
-<section class="hero">
+<section class="hero has-photo">
+  <img class="hero-bg" src="images/asbestos-removal.jpg" alt="" aria-hidden="true" fetchpriority="high">
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow">פינוי אסבסט · גגות פאנל ואיסכורית</span>
@@ -104,89 +105,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </ul>
     </div>
 
-    <div class="hero-art" aria-hidden="true">
-      <svg class="scene" viewBox="0 0 600 440" id="scene">
-        <defs>
-          <linearGradient id="newRoof" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#ffc24f"/><stop offset="1" stop-color="#d98a06"/>
-          </linearGradient>
-          <linearGradient id="oldRoof" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#b9bfc2"/><stop offset="1" stop-color="#868e93"/>
-          </linearGradient>
-          <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#2b3a49"/><stop offset="1" stop-color="#1c2733"/>
-          </linearGradient>
-          <clipPath id="roofClip"><polygon points="60,240 540,240 480,110 120,110"/></clipPath>
-          <clipPath id="leftHalf"><rect x="0" y="0" width="300" height="440"/></clipPath>
-          <clipPath id="rightHalf"><rect x="300" y="0" width="300" height="440"/></clipPath>
-          <pattern id="hz" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-            <rect width="11" height="22" fill="#f5a524"/><rect x="11" width="11" height="22" fill="#0e1620"/>
-          </pattern>
-        </defs>
-
-        <!-- ground -->
-        <ellipse cx="300" cy="392" rx="270" ry="22" fill="#000" opacity=".35"/>
-        <!-- wall -->
-        <rect x="90" y="236" width="420" height="150" rx="4" fill="url(#wall)"/>
-        <rect x="250" y="292" width="100" height="94" rx="3" fill="#0e1620"/>
-        <g stroke="#3b4c5e" stroke-width="2">
-          <line x1="258" y1="306" x2="342" y2="306"/><line x1="258" y1="322" x2="342" y2="322"/>
-          <line x1="258" y1="338" x2="342" y2="338"/><line x1="258" y1="354" x2="342" y2="354"/>
-          <line x1="258" y1="370" x2="342" y2="370"/>
-        </g>
-        <rect x="128" y="276" width="76" height="46" rx="4" fill="#3a556f"/>
-        <rect x="396" y="276" width="76" height="46" rx="4" fill="#3a556f"/>
-        <path d="M128 276h76l-30 46h-46z" fill="#fff" opacity=".07"/>
-        <path d="M396 276h76l-30 46h-46z" fill="#fff" opacity=".07"/>
-
-        <!-- roof: left = new panels, right = old asbestos -->
-        <g clip-path="url(#roofClip)">
-          <g clip-path="url(#leftHalf)">
-            <rect x="0" y="100" width="600" height="150" fill="url(#newRoof)"/>
-            <g id="ribsNew" stroke="#fff" stroke-opacity=".38" stroke-width="3"></g>
-            <g id="ribsNewShade" stroke="#8a5600" stroke-opacity=".35" stroke-width="2"></g>
-          </g>
-          <g clip-path="url(#rightHalf)">
-            <rect x="0" y="100" width="600" height="150" fill="url(#oldRoof)"/>
-            <g id="ribsOld" stroke="#5f676c" stroke-opacity=".55" stroke-width="2.4"></g>
-            <!-- stains & cracks -->
-            <ellipse cx="420" cy="170" rx="38" ry="16" fill="#5d5a4a" opacity=".28"/>
-            <ellipse cx="470" cy="215" rx="26" ry="10" fill="#4f5048" opacity=".3"/>
-            <path d="M360 120l12 26-8 14 14 22-6 18" stroke="#3e4448" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-            <path d="M448 128l-10 20 10 16-12 20" stroke="#3e4448" stroke-width="2" fill="none" stroke-linecap="round"/>
-            <path d="M330 200l18 10 6 22" stroke="#3e4448" stroke-width="2" fill="none" stroke-linecap="round"/>
-          </g>
-        </g>
-        <!-- roof edges -->
-        <polygon points="60,240 540,240 480,110 120,110" fill="none" stroke="#0e1620" stroke-width="4" stroke-linejoin="round"/>
-        <rect x="52" y="238" width="496" height="10" rx="3" fill="#0e1620"/>
-
-        <!-- divider -->
-        <line x1="300" y1="70" x2="300" y2="248" stroke="#fff" stroke-width="3" stroke-dasharray="8 7"/>
-        <g font-family="Heebo, sans-serif" font-weight="800" font-size="17" text-anchor="middle">
-          <rect x="330" y="40" width="96" height="34" rx="17" fill="#0e1620" stroke="#ffffff33"/>
-          <text x="378" y="63" fill="#cfd5d9">לפני</text>
-          <rect x="174" y="40" width="96" height="34" rx="17" fill="#f5a524"/>
-          <text x="222" y="63" fill="#0e1620">אחרי</text>
-        </g>
-
-        <!-- warning tape on the old side -->
-        <g transform="translate(330 404) rotate(-4)">
-          <rect x="0" y="-13" width="230" height="26" fill="url(#hz)"/>
-          <rect x="58" y="-10" width="114" height="20" fill="#0e1620"/>
-          <text x="115" y="5" fill="#f5a524" font-family="Heebo, sans-serif" font-weight="900" font-size="14" text-anchor="middle" letter-spacing="1">⚠ אסבסט</text>
-        </g>
-      </svg>
-
-      <div class="float-card fc-1">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
-        <span>פירוק בטיחותי<small>לפי כל התקנים</small></span>
-      </div>
-      <div class="float-card fc-2">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 12 3l9 7"/><path d="M5 9v11h14V9"/><path d="M9 20v-6h6v6"/></svg></span>
-        <span>גג פאנל מבודד<small>חם בחורף, קריר בקיץ</small></span>
-      </div>
-    </div>
   </div>
 </section>
 <div class="hazard" role="presentation"></div>

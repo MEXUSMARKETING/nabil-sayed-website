@@ -100,6 +100,15 @@ h1,h2,h3{line-height:1.15;font-weight:900;letter-spacing:-.01em}
 .fc-2 .ic{background:#fff3dd;color:var(--amber-dark)}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
+/* hero with a real photo (home page) */
+.hero.has-photo{min-height:min(88vh,820px);display:flex;align-items:center}
+.hero.has-photo .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% center;z-index:-3}
+.hero.has-photo::before{background:linear-gradient(270deg,rgba(14,22,32,.96) 0%,rgba(14,22,32,.86) 38%,rgba(14,22,32,.45) 70%,rgba(14,22,32,.25) 100%),linear-gradient(0deg,rgba(14,22,32,.7) 0%,transparent 35%)}
+.hero.has-photo::after{display:none}
+.hero.has-photo .hero-grid{grid-template-columns:minmax(0,680px);width:100%}
+.hero.has-photo h1,.hero.has-photo .hero-lead{text-shadow:0 2px 18px rgba(0,0,0,.45)}
+@media (max-width:860px){.hero.has-photo::before{background:linear-gradient(0deg,rgba(14,22,32,.94) 18%,rgba(14,22,32,.7) 55%,rgba(14,22,32,.35) 100%)}.hero.has-photo .hero-bg{object-position:20% center}}
+
 /* hazard strip */
 .hazard{height:14px;background:repeating-linear-gradient(-45deg,var(--amber) 0 18px,var(--ink) 18px 36px)}
 
